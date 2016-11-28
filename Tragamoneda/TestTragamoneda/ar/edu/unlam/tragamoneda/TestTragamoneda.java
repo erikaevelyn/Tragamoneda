@@ -7,20 +7,28 @@ import org.junit.Test;
 public class TestTragamoneda {
 	
 	@Test
-	public void queReconozcaLosTamboresYGire(){
-		Tambor miTambor1 = new Tambor(9);
-		Tambor miTambor2 = new Tambor(6);
+	public void crearElTragamonedasYQueReconozcaCantidadDeTamboresYPremioAlAzar(){
+		Tambor miTambor1 = new Tambor(3);
+		Tambor miTambor2 = new Tambor(3);
 		Tambor miTambor3 = new Tambor(3);
 		Tragamoneda miTragamoneda = new Tragamoneda(miTambor1, miTambor2, miTambor3);
-		Integer valorEsperado = 6;
-		Integer valorEsperado2 = 3;
-		Integer minValor = 1;
-		Integer maxValor = 10;
-		Assert.assertEquals(valorEsperado, miTambor2.getCarasDelTambor());
-		Assert.assertTrue(valorEsperado2 == miTambor3.getCarasDelTambor());
-		miTragamoneda.girar();
+		Integer minValor = 0;
+		Integer maxValor = 4;
+		miTragamoneda.girarTambores();
 		Assert.assertTrue(miTragamoneda.getValorTambor1() != null);
 		Assert.assertTrue(miTragamoneda.getValorTambor1() > minValor && miTragamoneda.getValorTambor1() < maxValor);
+		Assert.assertFalse(miTragamoneda.entregaPremio());
+	}
+	
+	@Test
+	public void queElTragaMonedasEntregueElPremio(){
+		Tambor miTambor1 = new Tambor(1);
+		Tambor miTambor2 = new Tambor(1);
+		Tambor miTambor3 = new Tambor(1);
+		Tragamoneda miTragamoneda = new Tragamoneda(miTambor1, miTambor2, miTambor3);
+		miTragamoneda.girarTambores();
+		Assert.assertTrue(miTragamoneda.entregaPremio());
+		
 	}
 
 }

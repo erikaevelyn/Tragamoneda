@@ -14,14 +14,6 @@ public class Tambor {
 		return generator.nextInt(this.carasDelTambor) + 1;
 	}
 
-	public Integer getCarasDelTambor() {
-		return carasDelTambor;
-	}
-
-	public void setCarasDelTambor(Integer carasDelTambor) {
-		this.carasDelTambor = carasDelTambor;
-	}
-
 
 	
 }
